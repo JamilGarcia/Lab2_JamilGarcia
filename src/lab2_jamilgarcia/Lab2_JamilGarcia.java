@@ -2,6 +2,7 @@ package lab2_jamilgarcia;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import javax.crypto.Cipher;
 
 public class Lab2_JamilGarcia {
 
@@ -223,7 +224,99 @@ public class Lab2_JamilGarcia {
                 case 2:
                     System.out.println("Manejo de Estasdos");
                     if (login == true) {
-
+                        System.out.println("Ingrese el estado que desea manejar: "
+                                + "1. Lista \n"
+                                + "2. En Construccion \n"
+                                + "3. Construccion en Espera \n" 
+                                + "4. Espera de Demolicion");
+                        int opcionC = jg.nextInt();
+                        switch (opcionC) {
+                            case 1:
+                                ImprimirArray(Lista);
+                                System.out.println("Ingrese una casa: ");
+                                int opcionCa = jg.nextInt();
+                                System.out.println("Desea cambiar el estado de esta casa de Lista a EN ESPERA DE DEMOLICION? \n"
+                                        + "1. SI \n"
+                                        + "2. NO\n");
+                                int opcionCaA= jg.nextInt();
+                                if (opcionCaA == 1){
+                                    if(Demo.size() < 3 ){
+                                        Demo.add(new Casa());
+                                        Demo.set(Demo.size(), Lista.get(opcionCa));
+                                        Lista.remove(opcionCa);
+                                        System.out.println("Cambio Exitoso");
+                                    } else {
+                                        System.out.println("La lista de Demolicion está llena, no se cambió nada");
+                                    }
+                                } else{
+                                    System.out.println("Regresando al menu");
+                                }
+                                break;
+                            case 2:
+                                ImprimirArray(EnCons);
+                                System.out.println("Ingrese una casa: ");
+                                opcionCa = jg.nextInt();
+                                System.out.println("A que estado desea cambiar la casa: \n"
+                                        + "1. Lista \n"
+                                        + "2. Espera \n");
+                                int opcionCaB = jg.nextInt();
+                                switch (opcionCaB) {
+                                    case 1:
+                                        Lista.add(new Casa());
+                                        Lista.set(Lista.size(), EnCons.get(opcionCa));
+                                        EnCons.remove(opcionCa);
+                                        System.out.println("Cambio Exitoso");
+                                        break;
+                                    case 2:
+                                        ConsEs.add(new Casa());
+                                        ConsEs.set(ConsEs.size(), EnCons.get(opcionCa));
+                                        EnCons.remove(opcionCa);
+                                        System.out.println("Cambio Exitoso");
+                                        break;
+                                    
+                                    default:
+                                        System.out.println("Ingrese una opcion valida!!");
+                                }
+                                break;
+                            case 3:
+                                ImprimirArray(ConsEs);
+                                System.out.println("Ingrese una casa: ");
+                                opcionCa = jg.nextInt();
+                                System.out.println("Desea cambiar el estado de esta casa de CONSTRUCCION EN ESPERA a EN CONSTRUCCION? \n"
+                                        + "1. SI \n"
+                                        + "2. NO\n");
+                                opcionCaA = jg.nextInt();
+                                if (opcionCaA == 1){
+                                    if(ConsEs.size() < 5 ){
+                                        EnCons.add(new Casa());
+                                        EnCons.set(ConsEs.size(), ConsEs.get(opcionCa));
+                                        ConsEs.remove(opcionCa);
+                                        System.out.println("Cambio Exitoso");
+                                    } else {
+                                        System.out.println("La lista de Construccion está llena, no se cambió nada");
+                                    }
+                                } else{
+                                    System.out.println("Regresando al menu");
+                                }
+                                break;
+                            case 4:
+                                ImprimirArray(Demo);
+                                System.out.println("Ingrese una casa: ");
+                                opcionCa = jg.nextInt();
+                                System.out.println("Desea Demoler esta casa? \n"
+                                        + "1. SI \n"
+                                        + "2. NO\n");
+                                opcionCaA = jg.nextInt();
+                                if(opcionCaA == 1){
+                                    Demo.remove(opcionCa); 
+                                    System.out.println("Demolida con exito");
+                                } else {
+                                    System.out.println("Regresando al menu");
+                                }
+                                break;
+                            default:
+                                System.out.println("Ingrese una opcion valida");
+                        }
                     } else {
                         System.out.println("Ingrese al login primero");
                     }
