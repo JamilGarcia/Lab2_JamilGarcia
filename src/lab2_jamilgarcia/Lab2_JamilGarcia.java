@@ -1,6 +1,7 @@
 package lab2_jamilgarcia;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Lab2_JamilGarcia {
     
@@ -8,6 +9,10 @@ public class Lab2_JamilGarcia {
 
     public static void main(String[] args) {
         
+        ArrayList <Casa> Lista; 
+        ArrayList <Casa> EnCons; 
+        ArrayList <Casa> ConsEs; 
+        ArrayList <Casa> Demo; 
         char resp = 's';
         boolean login = false;
         while (resp == 's'){
@@ -23,7 +28,29 @@ public class Lab2_JamilGarcia {
                 case 1:
                     System.out.println("Registro de Casas");
                     if (login == true){
-                        
+                        System.out.println(""
+                                + "1. Crear Casa \n"
+                                + "2. Listar Casa \n"
+                                + "3. Modificar Casa \n"
+                                + "4. Borrar Casa \n"
+                                + "Ingrese una opcion: ");
+                        int opcionA = jg.nextInt();
+                        switch (opcionA) {
+                            case 1:
+                                System.out.println("Crear Casa: ");
+                                break;
+                            case 2:
+                                System.out.println("Listar Casa: ");
+                                break;
+                            case 3:
+                                System.out.println("Modificar Casa: ");
+                                break;
+                            case 4:
+                                System.out.println("Borrar Casa: ");
+                                break;
+                            default:
+                                System.out.println("Ingrese una opcion valida!!!");;
+                        }
                     } else {
                         System.out.println("Ingrese al login primero");
                     }
