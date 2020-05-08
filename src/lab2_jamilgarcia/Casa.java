@@ -122,7 +122,17 @@ public class Casa {
 
     @Override
     public String toString() {
-        return "Casa{" + "n_casa=" + n_casa + ", n_bloque=" + n_bloque + ", color=" + color + ", ancho=" + ancho + ", largo=" + largo + ", comprada=" + comprada + ", pisos=" + pisos + ", banos=" + banos + ", cuartos=" + cuartos + ", due\u00f1o=" + dueño + ", ingeniero=" + ingeniero + '}';
+        return "Numero de Casa: " + n_casa + "\n" 
+                + "Numero De Bloque: " + n_bloque + "\n" 
+                + "Color: " + color +  "\n" 
+                + "Ancho: " + ancho +  "\n" 
+                + "Largo: " + largo +  "\n" 
+                + "Comprada: " + comprada +  "\n" 
+                + "Pisos: " + pisos +  "\n" 
+                + "Baños: " + banos +  "\n" 
+                + "Cuartos: " + cuartos +  "\n" 
+                + "Dueño: " + dueño +  "\n" 
+                + "Ingeniero" + ingeniero ;
     }
     
     

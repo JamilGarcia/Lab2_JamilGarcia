@@ -171,6 +171,10 @@ public class Lab2_JamilGarcia {
                 default:
                     System.out.println("Ingrese un valor valido!!");
             }
+            
+            public static void ImprimirArray (ArrayList<Casa> c){
+                
+            }
         }
     }
     
