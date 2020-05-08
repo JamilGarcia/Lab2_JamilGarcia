@@ -24,12 +24,16 @@ public class Lab2_JamilGarcia {
                     System.out.println("Registro de Casas");
                     if (login == true){
                         
+                    } else {
+                        System.out.println("Ingrese al login primero");
                     }
                     break;
                 case 2:
                     System.out.println("Manejo de Estasdos");
                     if (login == true){
                         
+                    }  else {
+                        System.out.println("Ingrese al login primero");
                     }
                     break;
                 case 3:
