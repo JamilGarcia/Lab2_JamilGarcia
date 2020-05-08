@@ -2,16 +2,11 @@ package lab2_jamilgarcia;
 
 import java.util.Scanner;
 import java.util.ArrayList;
-import javax.crypto.Cipher;
 
 public class Lab2_JamilGarcia {
 
     static Scanner jg = new Scanner(System.in);
-    static ArrayList<Casa> Lista = new ArrayList();
-    static ArrayList<Casa> EnCons = new ArrayList();
-    static ArrayList<Casa> ConsEs = new ArrayList();
-    static ArrayList<Casa> Demo = new ArrayList();
-
+    
     public static void main(String[] args) {
 
         ArrayList<Casa> Lista = new ArrayList();
@@ -148,25 +143,25 @@ public class Lab2_JamilGarcia {
                                         ImprimirArray(Lista);
                                         System.out.println("Ingrese la casa que quiera modificar: ");
                                         int opcionBa = jg.nextInt();
-                                        ImprimirOpciones(1, opcionBa);
+                                        ImprimirOpciones(1, opcionBa, Lista, EnCons, ConsEs, Demo);
                                         break;
                                     case 2:
                                         ImprimirArray(EnCons);
                                         System.out.println("Ingrese la casa que quiera modificar: ");
                                         opcionBa = jg.nextInt();
-                                        ImprimirOpciones(2, opcionBa);
+                                        ImprimirOpciones(2, opcionBa, Lista, EnCons, ConsEs, Demo);
                                         break;
                                     case 3:
                                         ImprimirArray(ConsEs);
                                         System.out.println("Ingrese la casa que quiera modificar: ");
                                         opcionBa = jg.nextInt();
-                                        ImprimirOpciones(3, opcionBa);
+                                        ImprimirOpciones(3, opcionBa, Lista, EnCons, ConsEs, Demo);
                                         break;
                                     case 4:
                                         ImprimirArray(Demo);
                                         System.out.println("Ingrese la casa que quiera modificar: ");
                                         opcionBa = jg.nextInt();
-                                        ImprimirOpciones(4, opcionBa);
+                                        ImprimirOpciones(4, opcionBa, Lista, EnCons, ConsEs, Demo);
                                         break;
                                     default:
                                         System.out.println("Ingrese una opcion correcta!!");
@@ -174,7 +169,7 @@ public class Lab2_JamilGarcia {
                                 break;
                             case 4:
                                 System.out.println("Borrar Casa: ");
-                                System.out.println("Ingrese El Estado de la casa que desea modificar: \n"
+                                System.out.println("Ingrese El Estado de la casa que desea borrar: \n"
                                         + "1. Lista \n"
                                         + "2. En Construccion \n"
                                         + "3. Construccion en Espera \n"
@@ -242,7 +237,7 @@ public class Lab2_JamilGarcia {
                                 if (opcionCaA == 1){
                                     if(Demo.size() < 3 ){
                                         Demo.add(new Casa());
-                                        Demo.set(Demo.size(), Lista.get(opcionCa));
+                                        Demo.set(Demo.size()-1, Lista.get(opcionCa));
                                         Lista.remove(opcionCa);
                                         System.out.println("Cambio Exitoso");
                                     } else {
@@ -263,13 +258,13 @@ public class Lab2_JamilGarcia {
                                 switch (opcionCaB) {
                                     case 1:
                                         Lista.add(new Casa());
-                                        Lista.set(Lista.size(), EnCons.get(opcionCa));
+                                        Lista.set(Lista.size()-1, EnCons.get(opcionCa));
                                         EnCons.remove(opcionCa);
                                         System.out.println("Cambio Exitoso");
                                         break;
                                     case 2:
                                         ConsEs.add(new Casa());
-                                        ConsEs.set(ConsEs.size(), EnCons.get(opcionCa));
+                                        ConsEs.set(ConsEs.size()-1, EnCons.get(opcionCa));
                                         EnCons.remove(opcionCa);
                                         System.out.println("Cambio Exitoso");
                                         break;
@@ -289,7 +284,7 @@ public class Lab2_JamilGarcia {
                                 if (opcionCaA == 1){
                                     if(ConsEs.size() < 5 ){
                                         EnCons.add(new Casa());
-                                        EnCons.set(ConsEs.size(), ConsEs.get(opcionCa));
+                                        EnCons.set(ConsEs.size()-1, ConsEs.get(opcionCa));
                                         ConsEs.remove(opcionCa);
                                         System.out.println("Cambio Exitoso");
                                     } else {
@@ -355,12 +350,13 @@ public class Lab2_JamilGarcia {
     public static void ImprimirArray(ArrayList<Casa> c) {
         for (int i = 0; i < c.size(); i++) {
             System.out.println("----------------------------------------------");
-            System.out.println("1. " + c.get(i).toString());
+            System.out.println( i + ")"  + "\n" + c.get(i).toString());
         }
+        System.out.println("************************************");
     }
 
-    public static void ImprimirOpciones(int l, int c) {
-        System.out.println("Ingrese lo que desea modificar: "
+    public static void ImprimirOpciones(int l, int c, ArrayList<Casa> Lista, ArrayList<Casa> EnCons, ArrayList<Casa> ConsEs, ArrayList<Casa> Demo) {
+        System.out.println("Ingrese lo que desea modificar: \n"
                 + "1. Numero de Casa: \n"
                 + "2. Numero de Bloque: \n"
                 + "3. Color: \n"

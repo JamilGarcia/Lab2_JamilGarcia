@@ -132,7 +132,7 @@ public class Casa {
                 + "Baños: " + banos +  "\n" 
                 + "Cuartos: " + cuartos +  "\n" 
                 + "Dueño: " + dueño +  "\n" 
-                + "Ingeniero" + ingeniero ;
+                + "Ingeniero: " + ingeniero ;
     }
     
     
